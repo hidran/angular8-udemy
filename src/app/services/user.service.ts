@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
+import { User } from '../interfaces/user';
 
 @Injectable()
 
   export class UserService {
-    users = [
+    users: User[] = [
       {
           name: 'Hidran1',
           lastname: 'Arias',
@@ -12,6 +13,7 @@ import { Injectable } from '@angular/core';
           province: 'Torino',
           phone: '454545455',
           age: 43
+
       } ,
       {
           name: 'Hidran2',
@@ -51,7 +53,7 @@ import { Injectable } from '@angular/core';
      if(index>=0){
       this.users.splice(index,1);
      }
-  
+
    }
 }
 
