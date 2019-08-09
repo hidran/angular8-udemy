@@ -12,6 +12,7 @@ export class UserComponent implements OnInit {
 
   @Input('user-data') user: User;
   @Output('onDeleteUser') userDeleted = new EventEmitter();
+  @Output('onSelectUser') onSelectUser = new EventEmitter();
 
   constructor(private userService: UserService) { }
 
@@ -20,8 +21,11 @@ export class UserComponent implements OnInit {
   deleteUser(){
 
     this.userDeleted.emit(this.user);
-    //this.userService.deleteUser(this.user);
+
 
   }
+  updateUser(){
+    this.onSelectUser.emit(this.user);
 
+  }
 }

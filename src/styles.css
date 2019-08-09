@@ -7,8 +7,10 @@
 .users{
   float: left;
   width: 60%;
+  border: 1px solid yellow;
 }
 .userDetail{
   float: left;
-  width:40%;
+  width:35%;
+  border: 1px solid red;
 }

@@ -13,3 +13,7 @@ button.delete{
   background: #fff;
   color:red;
 }
+button.update{
+  background: #fff;
+  color:green;
+}
