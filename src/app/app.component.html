@@ -4,7 +4,7 @@
   <app-users (updateUser) = "updateUser($event)"></app-users>
   </div>
   <div class="userDetail" *ngIf="userSelected">
-    <app-user-detail ></app-user-detail>
+    <app-user-detail [user] = "userSelected"></app-user-detail>
 
   </div>
 </div>
