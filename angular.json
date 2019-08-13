@@ -23,7 +23,8 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
+         a   "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.css"
             ],
             "scripts": []
