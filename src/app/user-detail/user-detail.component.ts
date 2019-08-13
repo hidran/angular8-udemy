@@ -8,7 +8,17 @@ import {UserService} from '../services/user.service';
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent implements OnInit {
-  @Input() user: User;
+  private usercopy;
+  private __user;
+
+  @Input() set user(user: User) {
+    this.__user = user;
+    this.usercopy = Object.assign({}, user);
+  }
+
+  get user() {
+    return this.__user;
+  }
 
   constructor(private userService: UserService) {
   }
@@ -29,7 +39,7 @@ export class UserDetailComponent implements OnInit {
     if (this.user.id === 0) {
       this.user = new User();
     } else {
-      form.reset();
+      this.user = this.usercopy;
     }
 
   }

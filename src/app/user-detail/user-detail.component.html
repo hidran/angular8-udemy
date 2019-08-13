@@ -1,5 +1,5 @@
 
-<form  #f="ngForm">
+<form  #f="ngForm">{{f | json}}
   <input type="hidden" name="id"  [(ngModel)]="user.id">
   <div class="form-group">
     <label for="firstname">First name</label>
