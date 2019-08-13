@@ -7,7 +7,8 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class NavComponent implements OnInit {
   @Output() onNewUser = new EventEmitter();
-
+   showmenu = false;
+   isCollapsed = false;
   constructor() {
   }
 
@@ -16,5 +17,8 @@ export class NavComponent implements OnInit {
 
   newUser() {
     this.onNewUser.emit();
+  }
+  toggleaMenu(){
+    this.showmenu = !this.showmenu;
   }
 }
