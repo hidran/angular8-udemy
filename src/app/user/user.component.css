@@ -1,19 +1,6 @@
-td{
-  padding:5px;
-  border: 1px solid #fff;
-  background-color:silver;
-  color: red;
+.buttons{
+  width:60px;
 }
-button{
-  padding: 5px;
-  border: 1px solid #222;
-  width:80px;
-}
-button.delete{
-  background: #fff;
-  color:red;
-}
-button.update{
-  background: #fff;
-  color:green;
+.buttons div{
+  padding:0;
 }

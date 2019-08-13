@@ -9,7 +9,7 @@ import {UserService} from '../services/user.service';
 })
 export class UserDetailComponent implements OnInit {
   private usercopy;
-  private __user;
+  private __user
 
   @Input() set user(user: User) {
     this.__user = user;
