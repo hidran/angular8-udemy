@@ -13,6 +13,7 @@ import {NavComponent} from './nav/nav.component';
 import {NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ModealBasicComponent} from './modeal-basic/modeal-basic.component';
 import {RouterModule, Routes} from '@angular/router';
+import { UserDataComponent } from './user-data/user-data.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
     component: UserDetailComponent
   },
   {
+    path: 'users/:id',
+    component: UserDataComponent
+  },
+  {
     path: 'users/:id/edit',
     component: UserDetailComponent
   }
@@ -41,7 +46,8 @@ const routes: Routes = [
     UserComponent,
     UserDetailComponent,
     NavComponent,
-    ModealBasicComponent
+    ModealBasicComponent,
+    UserDataComponent
   ],
   imports: [
     BrowserModule,
