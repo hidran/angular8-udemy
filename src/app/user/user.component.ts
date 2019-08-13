@@ -1,6 +1,6 @@
-import { Component, OnInit, Input,Output,EventEmitter } from '@angular/core';
-import { UserService } from '../services/user.service';
-import { User } from '../interfaces/user';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {UserService} from '../services/user.service';
+import {User} from '../classes/user';
 
 @Component({
   selector: 'tr[app-user]',
@@ -15,17 +15,20 @@ export class UserComponent implements OnInit {
   @Output('onSelectUser') onSelectUser = new EventEmitter();
 
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {
+  }
 
   ngOnInit() {
   }
-  deleteUser(){
+
+  deleteUser() {
 
     this.userDeleted.emit(this.user);
 
 
   }
-  updateUser(){
+
+  updateUser() {
     this.onSelectUser.emit(this.user);
 
   }
