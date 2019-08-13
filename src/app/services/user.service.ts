@@ -55,6 +55,14 @@ export class UserService {
     return this.users;
   }
 
+  deleteUser(user: UserInterface) {
+    const index = this.users.indexOf(user);
+    if (index >= 0) {
+      this.users.splice(index, 1);
+    }
+
+  }
+
   updateUser(user: UserInterface) {
     const idx = this.users.findIndex((v) => v.id === user.id);
     alert(idx);
@@ -63,11 +71,10 @@ export class UserService {
     }
   }
 
-  deleteUser(user: UserInterface) {
-    const index = this.users.indexOf(user);
-    if (index >= 0) {
-      this.users.splice(index, 1);
-    }
+
+  createUser(user: UserInterface) {
+
+    this.users.splice(0, 0, user);
 
   }
 }
