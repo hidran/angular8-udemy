@@ -21,7 +21,7 @@ private APIURL = 'http://localhost:8000/users';
     return this.users.find(user => user.id === id);
   }
 
-  deleteUser(user: UserInterface) {
+  deleteUser(user: User) {
     const index = this.users.indexOf(user);
     if (index >= 0) {
       this.users.splice(index, 1);
@@ -29,7 +29,7 @@ private APIURL = 'http://localhost:8000/users';
 
   }
 
-  updateUser(user: UserInterface) {
+  updateUser(user: User) {
     const idx = this.users.findIndex((v) => v.id === user.id);
     alert(idx);
     if (idx !== -1) {
@@ -38,7 +38,7 @@ private APIURL = 'http://localhost:8000/users';
   }
 
 
-  createUser(user: UserInterface) {
+  createUser(user: User) {
     user.id = this.users.length + 1;
     this.users.splice(0, 0, user);
 
