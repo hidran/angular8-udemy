@@ -10,10 +10,11 @@ import {FormsModule} from '@angular/forms';
 import {UserDetailComponent} from './user-detail/user-detail.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {NavComponent} from './nav/nav.component';
-import {NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ModealBasicComponent} from './modeal-basic/modeal-basic.component';
 import {RouterModule, Routes} from '@angular/router';
 import { UserDataComponent } from './user-data/user-data.component';
+import {HttpClientModule} from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -54,7 +55,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     FormsModule,
     AngularFontAwesomeModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
