@@ -19,7 +19,7 @@ export class UsersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.users = this.userService.getUsers();
+    this.userService.getUsers().subscribe(res => this.users = res['data']);
   }
 
   onDeleteUser(user: User) {

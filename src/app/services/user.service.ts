@@ -11,14 +11,10 @@ private APIURL = 'http://localhost:8000/users';
   }
 
   getUsers() {
-    return this.http.get(this.APIURL).subscribe(
-      data => console.log(data),
-      error => alert(error.message)
-    );
+    return this.http.get(this.APIURL);
   }
-
   getUser(id: number) {
-    return this.users.find(user => user.id === id);
+    return this.http.get(this.APIURL + '/' + id);
   }
 
   deleteUser(user: User) {
