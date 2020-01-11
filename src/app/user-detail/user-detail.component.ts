@@ -29,21 +29,32 @@ export class UserDetailComponent implements OnInit {
   ngOnInit() {
     this.user = new User();
     this.route.params.subscribe(params => {
-      if(!params.id){
+      if (!params.id) {
         return;
       }
-      this.userService.getUser(+params.id).subscribe( response => this.user = response['data']);
+      this.userService.getUser(+params.id).subscribe(response => this.user = response['data']);
 
     });
   }
 
   saveUser() {
     if (this.user.id > 0) {
-      this.userService.updateUser(this.user);
+      this.userService.updateUser(this.user).subscribe(
+        response => {
+          const user = response['data'] as User;
+          if (response['success']) {
+            alert('User ' + user.name + 'modificato corettamente');
+            this.router.navigate(['users']);
+
+          } else {
+            alert(response['message']);
+          }
+        }
+      );
     } else {
       this.userService.createUser(this.user);
     }
-    this.router.navigate(['users']);
+
   }
 
   resetForm(form) {

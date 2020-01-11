@@ -26,11 +26,8 @@ private APIURL = 'http://localhost:8000/users';
   }
 
   updateUser(user: User) {
-    const idx = this.users.findIndex((v) => v.id === user.id);
-    alert(idx);
-    if (idx !== -1) {
-      this.users[idx] = user;
-    }
+    return this.http.patch(this.APIURL + '/' + user.id,user)
+
   }
 
 
