@@ -18,10 +18,7 @@ private APIURL = 'http://localhost:8000/users';
   }
 
   deleteUser(user: User) {
-    const index = this.users.indexOf(user);
-    if (index >= 0) {
-      this.users.splice(index, 1);
-    }
+    return this.http.delete(this.APIURL + '/' + user.id);
 
   }
 
