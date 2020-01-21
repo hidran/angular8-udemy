@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {User} from '../classes/user';
+import {User} from '../classes/User';
 import {UserService} from '../services/user.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -39,22 +39,41 @@ export class UserDetailComponent implements OnInit {
 
   saveUser() {
     if (this.user.id > 0) {
-      this.userService.updateUser(this.user).subscribe(
-        response => {
-          const user = response['data'] as User;
-          if (response['success']) {
-            alert('User ' + user.name + 'modificato corettamente');
-            this.router.navigate(['users']);
-
-          } else {
-            alert(response['message']);
-          }
-        }
-      );
+      this.updateUser();
     } else {
-      this.userService.createUser(this.user);
+      this.createUser();
     }
 
+  }
+
+  private updateUser() {
+    this.userService.updateUser(this.user).subscribe(
+      response => {
+
+        if (response['success']) {
+          alert('User ' + this.user.name + ' modificato corettamente');
+          this.router.navigate(['users']);
+
+        } else {
+          alert(response['message']);
+        }
+      }
+    );
+  }
+
+  private createUser() {
+    this.userService.createUser(this.user).subscribe(
+      response => {
+
+        if (response['success']) {
+          alert('User ' + this.user.name + ' creato corettamente');
+          this.router.navigate(['users']);
+
+        } else {
+          alert(response['message']);
+        }
+      }
+    );
   }
 
   resetForm(form) {

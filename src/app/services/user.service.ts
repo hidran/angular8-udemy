@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {User} from '../classes/user';
+import {User} from '../classes/User';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable()
@@ -26,14 +26,13 @@ private APIURL = 'http://localhost:8000/users';
   }
 
   updateUser(user: User) {
-    return this.http.patch(this.APIURL + '/' + user.id,user)
+    return this.http.patch(this.APIURL + '/' + user.id,user);
 
   }
 
 
   createUser(user: User) {
-    user.id = this.users.length + 1;
-    this.users.splice(0, 0, user);
+    return this.http.post(this.APIURL , user);
 
   }
 }
