@@ -12,10 +12,10 @@ export class AuthService {
   isUserLoggedIn() {
     return this.isUserLogged;
   }
-  signin(email: string, password:string){
+  signIn(email: string, password:string){
 
   }
-  signup(username:string, email: string, password:string){
+  signUp(username:string, email: string, password:string){
 
   }
   logout() {
