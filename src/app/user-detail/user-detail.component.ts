@@ -36,7 +36,9 @@ export class UserDetailComponent implements OnInit {
 
     });
   }
-
+backToUsers(){
+    this.router.navigate(['users']);
+}
   saveUser() {
     if (this.user.id > 0) {
       this.updateUser();
