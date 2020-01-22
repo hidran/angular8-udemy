@@ -1,10 +1,12 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable, Output} from '@angular/core';
+import {User} from "../classes/User";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthService {
-  private isUserLogged = true;
+  private isUserLogged = false;
+  @Output() usersignedin = new EventEmitter<User>()
+  @Output() usersignedup = new EventEmitter<User>()
+  @Output() userlogout = new EventEmitter()
 
   constructor() {
   }
@@ -13,18 +15,31 @@ export class AuthService {
     this.isUserLogged = !!localStorage.getItem('token');
     return this.isUserLogged;
   }
-  signIn(email: string, password: string){
+
+  signIn(email: string, password: string) {
 
     localStorage.setItem('token', email);
+    let user = new User();
+    user.name = 'Test';
+    user.email = email;
+    this.usersignedin.emit(user);
     return true;
 
   }
-  signUp(username:string, email: string, password: string){
+
+  signUp(username: string, email: string, password: string) {
+
     localStorage.setItem('token', email);
+    let user = new User();
+    user.name = username;
+    user.email = email;
+    this.usersignedup.emit(user);
     return true;
   }
+
   logout() {
     localStorage.removeItem('token');
+    this.userlogout.emit();
     this.isUserLogged = false;
   }
 }
