@@ -19,8 +19,6 @@ export class LoginComponent implements OnInit {
       return false;
     }
     let result =  this.auth.signIn(form.value.email, form.value.password);
-    if(result){
-      this.router.navigate([''])
-    }
+
   }
 }
