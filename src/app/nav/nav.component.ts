@@ -28,6 +28,16 @@ export class NavComponent implements OnInit {
   logout(e) {
     e.preventDefault();
     this.auth.logout();
+
+
+  }
+  signIn(e) {
+
+    e.preventDefault();
     this.router.navigate(['login']);
+  }
+  signUp(e) {
+    e.preventDefault();
+    this.router.navigate(['signup']);
   }
 }

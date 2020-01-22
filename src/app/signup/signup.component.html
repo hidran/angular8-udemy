@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h1>
+      login
+    </h1>
+    <form name="signupForm" #f="ngForm" (ngSubmit)="signUp(f)">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input required  class="form-control"  minlength="2" type="name" ngModel #name="ngModel" name="name" id="name">
+        <div *ngIf="name.dirty && name.touched && name.invalid">
+
+          <div class="alert-danger" *ngIf="name.errors.required">
+            The field email is required
+          </div>
+          <div class="alert-danger" *ngIf="name.errors.minlength">
+            The field password must be  {{name.errors.minlength.requiredLength }} chars length
+          </div>
+
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input required  class="form-control" email type="email" ngModel #email="ngModel" name="email" id="email">
+        <div *ngIf="email.dirty && email.touched && email.invalid">
+
+          <div class="alert-danger" *ngIf="email.errors.required">
+            The field email is required
+          </div>
+          <div class="alert-danger" *ngIf="email.errors.email">
+            The value must be a valid email
+          </div>
+
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input class="form-control" required minlength="6" ngModel type="password" #password="ngModel" name="password" id="password">
+        <div *ngIf="password.dirty && password.touched && password.invalid">
+
+          <div class="alert-danger" *ngIf="password.errors.required">
+            The field password is required
+          </div>
+          <div class="alert-danger" *ngIf="password.errors.minlength">
+            The field password must be  {{password.errors.minlength.requiredLength }} chars length
+          </div>
+
+        </div>
+      </div>
+      <div class="form-group text-center">
+        <button [disabled]="!f.valid" class="btn btn-primary">Sign up</button>
+      </div>
+    </form>
+  </div>
+</div>
