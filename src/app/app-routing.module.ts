@@ -4,6 +4,7 @@ import {UsersComponent} from "./users/users.component";
 import {UserDetailComponent} from "./user-detail/user-detail.component";
 import {UserDataComponent} from "./user-data/user-data.component";
 import {RouteGuardService} from "./services/route-guard.service";
+import {LoginComponent} from "./login/login.component";
 
 
 
@@ -29,6 +30,10 @@ const routes: Routes = [
     path: 'users/:id/edit',
     component: UserDetailComponent,
     canActivate: [RouteGuardService]
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ];
 

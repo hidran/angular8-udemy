@@ -15,6 +15,8 @@ import {ModealBasicComponent} from './modeal-basic/modeal-basic.component';
 import {RouterModule, Routes} from '@angular/router';
 import { UserDataComponent } from './user-data/user-data.component';
 import {HttpClientModule} from '@angular/common/http';
+import {AuthService} from "./services/auth.service";
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import {HttpClientModule} from '@angular/common/http';
     UserDetailComponent,
     NavComponent,
     ModealBasicComponent,
-    UserDataComponent
+    UserDataComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import {HttpClientModule} from '@angular/common/http';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [UserService],
+  providers: [UserService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
