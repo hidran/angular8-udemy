@@ -44,9 +44,9 @@ export class AuthService {
         return true;
 
       } ,
-      (error: any) => {
+      (httpResp: HttpErrorResponse) => {
 
-        console.log(error)
+        alert(httpResp.message);
       }
     )
 
