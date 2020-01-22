@@ -15,6 +15,12 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   signIn(form: NgForm) {
-   alert(form.value.email);
+    if(!form.valid){
+      return false;
+    }
+    let result =  this.auth.signIn(form.value.email, form.value.password);
+    if(result){
+      this.router.navigate([''])
+    }
   }
 }
