@@ -12,20 +12,24 @@ import {SignupComponent} from "./signup/signup.component";
 const routes: Routes = [
   {
     path: 'users',
-    component: UsersComponent
+    component: UsersComponent,
+    canActivate: [RouteGuardService]
   },
   {
     path: '',
     redirectTo: 'users',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [RouteGuardService]
   },
   {
     path: 'users/new',
-    component: UserDetailComponent
+    component: UserDetailComponent,
+    canActivate: [RouteGuardService]
   },
   {
     path: 'users/:id',
-    component: UserDataComponent
+    component: UserDataComponent,
+    canActivate: [RouteGuardService]
   },
   {
     path: 'users/:id/edit',
