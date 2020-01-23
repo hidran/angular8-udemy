@@ -24,16 +24,22 @@ private APIURL = 'http://localhost:8000/users';
     });
   }
   getUser(id: number) {
-    return this.http.get(this.APIURL + '/' + id);
+    return this.http.get(this.APIURL + '/' + id,  {
+      headers: this.getAuthHeader()
+    });
   }
 
   deleteUser(user: User) {
-    return this.http.delete(this.APIURL + '/' + user.id);
+    return this.http.delete(this.APIURL + '/' + user.id,  {
+      headers: this.getAuthHeader()
+    });
 
   }
 
   updateUser(user: User) {
-    return this.http.patch(this.APIURL + '/' + user.id,user);
+    return this.http.patch(this.APIURL + '/' + user.id,user,  {
+      headers: this.getAuthHeader()
+    });
 
   }
 
