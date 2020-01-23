@@ -60,7 +60,15 @@ export class AuthService {
     this.userlogout.emit();
     this.isUserLogged = false;
   }
-
+  getUser(): User {
+    const data = JSON.parse(localStorage.getItem('user'));
+    let user = new User();
+    if(data){
+      user.name = data['user_name'];
+      user.email = data['email'];
+    }
+    return user;
+  }
   getToken() {
     return localStorage.getItem('token');
   }
