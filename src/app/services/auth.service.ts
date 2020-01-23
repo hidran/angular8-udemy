@@ -53,7 +53,35 @@ export class AuthService {
 
   }
 
+  signUp(username: string, email: string, password: string) {
 
+
+    const user = new User();
+    user.name = username;
+    user.email = email;
+
+    this.http.post(this.APIAUTHURL + 'signup',
+      {
+        email: email,
+        password: password,
+        name : username
+      }
+    ).subscribe(
+      (payload: Jwt) => {
+        localStorage.setItem('token', payload.access_token);
+        console.log(payload);
+        localStorage.setItem('user' , JSON.stringify(payload));
+
+        this.usersignedup.emit(user);
+
+
+      } ,
+      (httpResp: HttpErrorResponse) => {
+
+        alert(httpResp.message);
+      }
+    );
+  }
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
