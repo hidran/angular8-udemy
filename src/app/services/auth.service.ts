@@ -1,6 +1,7 @@
 import {EventEmitter, Injectable, Output} from '@angular/core';
 import {User} from "../classes/User";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {tap} from "rxjs/operators";
 interface Jwt {
   access_token: string,
   token_type: string
@@ -27,28 +28,25 @@ export class AuthService {
 
   signIn(email: string, password: string) {
 
-    this.http.post(this.APIAUTHURL + 'login',
+   return  this.http.post(this.APIAUTHURL + 'login',
       {
         email: email,
         password: password
       }
-    ).subscribe(
-      (payload: Jwt) => {
-        localStorage.setItem('token', payload.access_token);
-        console.log(payload)
-        localStorage.setItem('user' , JSON.stringify(payload));
-        let user = new User();
-        user.name = payload.user_name;
-        user.email = payload.email;
-        this.usersignedin.emit(user);
-        return true;
+    ).pipe(
+      tap(
+     (payload: Jwt) => {
+       localStorage.setItem('token', payload.access_token);
+       console.log(payload)
+       localStorage.setItem('user' , JSON.stringify(payload));
+       let user = new User();
+       user.name = payload.user_name;
+       user.email = payload.email;
+       this.usersignedin.emit(user);
+       return true;
 
-      } ,
-      (httpResp: HttpErrorResponse) => {
-
-        alert(httpResp.message);
-      }
-    )
+     }
+   ));
 
 
   }
@@ -60,13 +58,13 @@ export class AuthService {
     user.name = username;
     user.email = email;
 
-    this.http.post(this.APIAUTHURL + 'signup',
+    return this.http.post(this.APIAUTHURL + 'signup',
       {
         email: email,
         password: password,
         name : username
       }
-    ).subscribe(
+    ).pipe(tap(
       (payload: Jwt) => {
         localStorage.setItem('token', payload.access_token);
         console.log(payload);
@@ -80,7 +78,7 @@ export class AuthService {
 
         alert(httpResp.message);
       }
-    );
+    ));
   }
   logout() {
     localStorage.removeItem('token');
