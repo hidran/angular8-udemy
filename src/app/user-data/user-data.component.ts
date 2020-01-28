@@ -9,7 +9,8 @@ import {UserService} from '../services/user.service';
   styleUrls: ['./user-data.component.css']
 })
 export class UserDataComponent implements OnInit {
- private User: User;
+ public User: User;
+ public title = '';
   constructor(private route:ActivatedRoute, private userService: UserService,
               private router: Router) { }
 

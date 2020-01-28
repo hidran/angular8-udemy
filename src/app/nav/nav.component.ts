@@ -11,8 +11,8 @@ import {User} from "../classes/User";
 export class NavComponent implements OnInit {
 
   @Output() onNewUser = new EventEmitter()
-  private isUserLOggedIn = false;
-  private username:string;
+  public isUserLOggedIn = false;
+  public username:string;
   constructor(private auth : AuthService, private router: Router) {
     auth.usersignedin.subscribe(
       (user: User) =>  {
