@@ -11,8 +11,8 @@
     "postinstall": "ng build  --prod"
   },
   "engines": {
-    "node": "~13.3.1",
-    "npm": "~6.13.0"
+    "node": "^13.3.0",
+    "npm": "^6.13.0"
   },
   "private": true,
   "dependencies": {
