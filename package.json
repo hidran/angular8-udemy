@@ -27,7 +27,7 @@
     "@ng-bootstrap/ng-bootstrap": "^5.1.0",
     "angular-font-awesome": "^3.1.2",
     "bootstrap": "^4.3.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "font-awesome": "^4.7.0",
     "path": "^0.12.7",
     "rxjs": "~6.5.4",
